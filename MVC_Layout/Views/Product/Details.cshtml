@@ -1,0 +1,26 @@
+﻿@using MVC_Layout.Models.Data;
+@model MVC_Layout.Models.Entity.Product
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DatabaseContext db = new DatabaseContext();
+    var result = db.Categories.Where(x => x.ID == Model.CategoryId).Select(x => new { x.CategoryName }).FirstOrDefault();
+}
+
+<div class="container px-4 py-4">
+    <div class="row">
+        <h1>Details-@Model.ProductName</h1>
+        <hr />
+        <div class="mt-2 px-4">
+        <ul>
+                <li>ID-) @Model.ID</li>
+                <li>ProductName-) @Model.ProductName</li>
+                <li>Category-) @result</li>
+                <li>Description-) @Model.Description</li>
+                <li>UnitPrice-) @Model.UnitPrice</li>
+                <li>ImagePath-) @Model.ImagePath</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
