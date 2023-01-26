@@ -22,7 +22,6 @@ namespace MVC_Layout
         {
             services.AddControllersWithViews();
 
-            //Scopeds
             services.AddScoped<IAccount, AccountService>();
             services.AddScoped<ICategory, CategoryService>();
             services.AddScoped<IProduct, ProductService>();
